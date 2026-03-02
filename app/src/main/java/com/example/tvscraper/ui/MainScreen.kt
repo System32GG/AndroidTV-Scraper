@@ -7,11 +7,11 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.compose.ui.unit.sp
 
 @OptIn(ExperimentalTvMaterial3Api::class)
 @Composable
-fun MainScreen(viewModel: MainViewModel = viewModel()) {
+fun MainScreen(viewModel: MainViewModel = remember { MainViewModel() }) {
     val movies by viewModel.movies.collectAsState()
     val isLoading by viewModel.isLoading.collectAsState()
     val currentScreen by viewModel.currentScreen.collectAsState()
@@ -21,7 +21,7 @@ fun MainScreen(viewModel: MainViewModel = viewModel()) {
         MainViewModel.Screen.CATALOG -> {
             if (isLoading) {
                 Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-                    CircularProgressIndicator()
+                    Text("Cargando...", fontSize = 24.sp)
                 }
             } else {
                 TvLazyVerticalGrid(
@@ -54,4 +54,3 @@ fun MainScreen(viewModel: MainViewModel = viewModel()) {
         }
     }
 }
-

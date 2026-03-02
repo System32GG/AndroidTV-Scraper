@@ -36,14 +36,12 @@ fun MovieDetailScreen(
             Row(verticalAlignment = Alignment.CenterVertically) {
                 // Poster
                 Card(
-                    onClick = {},
-                    shape = CardDefaults.shape(MaterialTheme.shapes.medium),
-                    modifier = Modifier.width(200.dp).aspectRatio(2f/3f)
+                    onClick = {}
                 ) {
                     AsyncImage(
                         model = movie.posterUrl,
                         contentDescription = movie.title,
-                        modifier = Modifier.fillMaxSize(),
+                        modifier = Modifier.width(200.dp).aspectRatio(2f/3f),
                         contentScale = ContentScale.Crop
                     )
                 }
