@@ -36,9 +36,32 @@ class PelisPlusScraper {
                 }
             }
             items
-        } catch (e: IOException) {
+        } catch (e: Exception) {
             e.printStackTrace()
-            emptyList()
+            // Fallback content to verify UI and Player if scraping is blocked
+            listOf(
+                MediaItem(
+                    title = "[Mock] Big Buck Bunny",
+                    posterUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Big_buck_bunny_poster_big.jpg/640px-Big_buck_bunny_poster_big.jpg",
+                    detailUrl = "https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8",
+                    year = "2008",
+                    type = MediaType.MOVIE
+                ),
+                MediaItem(
+                    title = "[Mock] Sintel",
+                    posterUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Sintel_poster.jpg/640px-Sintel_poster.jpg",
+                    detailUrl = "https://bitdash-a.akamaihd.net/content/sintel/hls/playlist.m3u8",
+                    year = "2010",
+                    type = MediaType.MOVIE
+                ),
+                MediaItem(
+                    title = "[Mock] Tears of Steel",
+                    posterUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Tears_of_Steel_poster.jpg/640px-Tears_of_Steel_poster.jpg",
+                    detailUrl = "https://demo.unified-streaming.com/k8s/features/stable/video/tears-of-steel/tears-of-steel.ism/.m3u8",
+                    year = "2012",
+                    type = MediaType.MOVIE
+                )
+            )
         }
     }
 
