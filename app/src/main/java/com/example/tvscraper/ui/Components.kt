@@ -16,29 +16,23 @@ fun MovieCard(
     onClick: () -> Unit,
     modifier: Modifier = Modifier
 ) {
-    StandardCardContainer(
-        imageCard = {
-            CardLayoutDefaults.ImageCard(
-                onClick = onClick,
-                shape = CardDefaults.shape(MaterialTheme.shapes.medium),
-                interactionSource = it
-            ) {
-                AsyncImage(
-                    model = movie.posterUrl,
-                    contentDescription = movie.title,
-                    modifier = Modifier.aspectRatio(2f / 3f),
-                    contentScale = ContentScale.Crop
-                )
-            }
-        },
-        title = {
+    Card(
+        onClick = onClick,
+        modifier = modifier.width(150.dp)
+    ) {
+        Column {
+            AsyncImage(
+                model = movie.posterUrl,
+                contentDescription = movie.title,
+                modifier = Modifier.fillMaxWidth().aspectRatio(2f / 3f),
+                contentScale = ContentScale.Crop
+            )
             Text(
                 text = movie.title,
                 style = MaterialTheme.typography.labelMedium,
                 maxLines = 1,
-                modifier = Modifier.padding(top = 4.dp)
+                modifier = Modifier.padding(8.dp)
             )
-        },
-        modifier = modifier.width(150.dp)
-    )
+        }
+    }
 }

@@ -1,6 +1,6 @@
 package com.example.tvscraper.ui
 
-import androidx.annotation.OptIn
+import kotlin.OptIn
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.viewinterop.AndroidView
